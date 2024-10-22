@@ -5,9 +5,15 @@ public class AnswerOption {
     private Question question;
     private String content;
     private boolean isCorrect;
+    private int numberOrder;
     
-    public AnswerOption(Question question, String content, boolean isCorrect) {
-        this.question = question;
+    public AnswerOption(String content, boolean isCorrect) {
+        this.content = content;
+        this.isCorrect = isCorrect;
+    }
+
+    public AnswerOption(int id, String content, boolean isCorrect) {
+        this.id = id;
         this.content = content;
         this.isCorrect = isCorrect;
     }
@@ -44,6 +50,14 @@ public class AnswerOption {
         this.isCorrect = isCorrect;
     }
 
+    public int getNumberOrder() {
+        return numberOrder;
+    }
+
+    public void setNumberOrder(int numberOrder) {
+        this.numberOrder = numberOrder;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -52,6 +66,7 @@ public class AnswerOption {
         result = prime * result + ((question == null) ? 0 : question.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
         result = prime * result + (isCorrect ? 1231 : 1237);
+        result = prime * result + numberOrder;
         return result;
     }
 
@@ -77,6 +92,8 @@ public class AnswerOption {
         } else if (!content.equals(other.content))
             return false;
         if (isCorrect != other.isCorrect)
+            return false;
+        if (numberOrder != other.numberOrder)
             return false;
         return true;
     }

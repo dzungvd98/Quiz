@@ -1,5 +1,5 @@
 package main;
 
 public enum QType {
-    SINGLE, MULTIPLE 
+    SINGLE, MULTIPLE, FILL_IN_BLANK
 }

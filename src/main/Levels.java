@@ -1,35 +1,35 @@
 package main;
 
-import java.util.HashSet;
 import java.util.Set;
 
-public class Subject {
+public class Levels {
+    private int id;
     private String name;
     private String description;
-    Set<Question> questions;
+    private Set<Question> questions;
 
-    public Subject() {
-        this.questions = new HashSet<>();
-    }
-
-    public void setName(String name) {
+    public Levels(int id, String name, String description) {
+        this.id = id;
         this.name = name;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
-
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getDescription() {
         return description;
     }
-    
-    public void addQuestion(Question question) {
-        questions.add(question);
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Set<Question> getQuestions() {
@@ -39,5 +39,5 @@ public class Subject {
     public void setQuestions(Set<Question> questions) {
         this.questions = questions;
     }
-
+    
 }
