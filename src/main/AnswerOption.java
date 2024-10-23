@@ -6,8 +6,11 @@ public class AnswerOption {
     private String content;
     private int numberCorrectAnswer;
     private String answerType;
-    
 
+    public AnswerOption(int id, String content) {
+        this.id = id;
+        this.content = content;
+    }
 
     public AnswerOption(String content, int correctAnswer) {
         this.content = content;
@@ -67,15 +70,13 @@ public class AnswerOption {
         this.answerType = answerType;
     }
 
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((question == null) ? 0 : question.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
-        result = prime * result + numberCorrectAnswer;
-        result = prime * result + ((answerType == null) ? 0 : answerType.hashCode());
         return result;
     }
 
@@ -90,30 +91,17 @@ public class AnswerOption {
         AnswerOption other = (AnswerOption) obj;
         if (id != other.id)
             return false;
-        if (question == null) {
-            if (other.question != null)
-                return false;
-        } else if (!question.equals(other.question))
-            return false;
         if (content == null) {
             if (other.content != null)
                 return false;
         } else if (!content.equals(other.content))
-            return false;
-        if (numberCorrectAnswer != other.numberCorrectAnswer)
-            return false;
-        if (answerType == null) {
-            if (other.answerType != null)
-                return false;
-        } else if (!answerType.equals(other.answerType))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "AnswerOption [id=" + id + ", content=" + content + ", correctAnswer=" + numberCorrectAnswer + ", answerType="
-                + answerType + "]";
+        return "AnswerOption [id=" + id + ", content=" + content + "]";
     }
 
 }

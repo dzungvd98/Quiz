@@ -1,11 +1,11 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.TreeMap;
 
 
 public class Question {
@@ -114,38 +114,50 @@ public class Question {
         this.type = type;
     }
 
-    public List<AnswerOption> getCorrectAnswers() {
-        switch (this.type.getTypeName()) {
-            case "Single Choice":
-                return getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion();
-            case "Multiple Choice": 
-                return getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion();
-            case "Orderred Choice": 
-                return getCorrectAnswerOptionsOfOrderredChoiceQuestion();
-            default:
-                break;
+    public Map<Integer, List<AnswerOption>> getCorrectAnswers() {
+        Map<Integer, List<AnswerOption>> result = new TreeMap<>();
+        for(AnswerOption answerOption : answerOptions) {
+            if(answerOption.getNumberCorrectAnswer() >=1) {
+                result.computeIfAbsent(answerOption.getNumberCorrectAnswer(), k->new ArrayList<>()).add(answerOption);
+            }
         }
-        return null; 
-    }
-
-    public List<AnswerOption> getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion() {
-        List<AnswerOption> result = answerOptions.stream()
-                                    .filter(answerOption -> answerOption.getNumberCorrectAnswer() == 1)
-                                    .collect(Collectors.toList());
         return result;
     }
 
-    public List<AnswerOption> getCorrectAnswerOptionsOfOrderredChoiceQuestion() {
-        List<AnswerOption> result = answerOptions.stream()
-                                    .filter(answerOption -> answerOption.getNumberCorrectAnswer() >= 1)
-                                    .sorted(Comparator.comparingInt(AnswerOption::getNumberCorrectAnswer))
-                                    .collect(Collectors.toList());
-        return result;
-    }
-
-    public Object getAnswerOfFillBlankQuestion() {
+    public boolean checkUserAnswer(List<AnswerOption> userAnswers) {
         
+        Map<Integer, List<AnswerOption>> result = this.getCorrectAnswers();
+
+        if(this.type.getTypeName().equals("Multiple Choice")) {
+            return checkUserAnswerForMutilpleChoiceQuestion(result, userAnswers);
+        }
+
+        if(result.size() != userAnswers.size()) {
+            return false;
+        }
+        
+        for(int i = 1; i <= userAnswers.size(); i++) {
+            AnswerOption answer = userAnswers.get(i-1);
+            if(!containAnswerInList(answer, result.get(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
+    public boolean containAnswerInList(AnswerOption answer, List<AnswerOption> listAnswerOptions) {
+        for(AnswerOption ans : listAnswerOptions) {
+            if(ans.toString().equals(answer.toString())) {
+                System.out.println(ans);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkUserAnswerForMutilpleChoiceQuestion(Map<Integer, List<AnswerOption>> resultMap, List<AnswerOption> userAnswers) {
+        List<AnswerOption> correctAnswers = resultMap.get(1);
+        return correctAnswers.containsAll(userAnswers);
+    }
 
 }
