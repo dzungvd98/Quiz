@@ -1,24 +1,23 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 
 public class Question {
     private int id;
     private String title;
     private String content;
-    private QType type;
+    private Types type;
     private Levels level;
     private Topic topic;
     private List<AnswerOption> answerOptions;
     private List<Quizs> quizs;
     private Set<Tags> tags;
-
-
 
     public Question() {
         this.answerOptions = new ArrayList<>();
@@ -26,7 +25,7 @@ public class Question {
         this.tags = new HashSet<>();
     }
 
-    public Question(int id, String title, String content, QType type, Levels level, Topic topic) {
+    public Question(int id, String title, String content, Types type, Levels level, Topic topic) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -37,8 +36,6 @@ public class Question {
         this.quizs = new ArrayList<>();
         this.tags = new HashSet<>();
     }
-
-
 
     public int getId() {
         return id;
@@ -63,15 +60,7 @@ public class Question {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public QType getType() {
-        return type;
-    }
-
-    public void setType(QType type) {
-        this.type = type;
-    }
-
+  
     public Levels getLevel() {
         return level;
     }
@@ -117,41 +106,46 @@ public class Question {
         answerOption.setQuestion(this);
     }
 
-    public List<AnswerOption> getCorrectAnswers() {
-        List<AnswerOption> result = new ArrayList<>();
-        for(AnswerOption answerOption : this.answerOptions) {
-            if(answerOption.isCorrect()) {
-                result.add(answerOption);
-            }
-        }
+    public Types getType() {
+        return type;
+    }
 
-        if(type == QType.FILL_IN_BLANK) {   
-            Collections.sort(result, Comparator.comparingInt(AnswerOption::getNumberOrder));
+    public void setType(Types type) {
+        this.type = type;
+    }
+
+    public List<AnswerOption> getCorrectAnswers() {
+        switch (this.type.getTypeName()) {
+            case "Single Choice":
+                return getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion();
+            case "Multiple Choice": 
+                return getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion();
+            case "Orderred Choice": 
+                return getCorrectAnswerOptionsOfOrderredChoiceQuestion();
+            default:
+                break;
         }
+        return null; 
+    }
+
+    public List<AnswerOption> getCorrectAnswerOptionOfSingleAndMultipleChoiceQuestion() {
+        List<AnswerOption> result = answerOptions.stream()
+                                    .filter(answerOption -> answerOption.getNumberCorrectAnswer() == 1)
+                                    .collect(Collectors.toList());
         return result;
     }
 
-    public boolean isCorrectAnswers(List<AnswerOption> userAnswers) {
-        if(this.type != QType.FILL_IN_BLANK) {
-            HashSet<AnswerOption> setCorrectAnswer = new HashSet<>(getCorrectAnswers());
-            HashSet<AnswerOption> setUserAnswer = new HashSet<>(userAnswers);
-            return setCorrectAnswer.equals(setUserAnswer);
-        }
-
-        return checkAnswerOfQuestionTypeFillInBlank(userAnswers);
+    public List<AnswerOption> getCorrectAnswerOptionsOfOrderredChoiceQuestion() {
+        List<AnswerOption> result = answerOptions.stream()
+                                    .filter(answerOption -> answerOption.getNumberCorrectAnswer() >= 1)
+                                    .sorted(Comparator.comparingInt(AnswerOption::getNumberCorrectAnswer))
+                                    .collect(Collectors.toList());
+        return result;
     }
 
-    public boolean checkAnswerOfQuestionTypeFillInBlank(List<AnswerOption> userAnswers) {
-        List<AnswerOption> correctAnswers = this.getCorrectAnswers();
-        if(userAnswers.size() != correctAnswers.size()) {
-            return false;
-        }
-
-        for(int i = 0; i < userAnswers.size(); i++) {
-            if(!correctAnswers.get(i).equals(userAnswers.get(i))) {
-                return false;
-            }
-        }
-        return true;
+    public Object getAnswerOfFillBlankQuestion() {
+        
     }
+
+
 }

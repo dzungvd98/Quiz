@@ -4,18 +4,27 @@ public class AnswerOption {
     private int id;
     private Question question;
     private String content;
-    private boolean isCorrect;
-    private int numberOrder;
+    private int numberCorrectAnswer;
+    private String answerType;
     
-    public AnswerOption(String content, boolean isCorrect) {
+
+
+    public AnswerOption(String content, int correctAnswer) {
         this.content = content;
-        this.isCorrect = isCorrect;
+        this.numberCorrectAnswer = correctAnswer;
     }
 
-    public AnswerOption(int id, String content, boolean isCorrect) {
+    public AnswerOption(int id, String content, int correctAnswer) {
         this.id = id;
         this.content = content;
-        this.isCorrect = isCorrect;
+        this.numberCorrectAnswer = correctAnswer;
+    }
+
+    public AnswerOption(int id, String content, int correctAnswer, String answerType) {
+        this.id = id;
+        this.content = content;
+        this.numberCorrectAnswer = correctAnswer;
+        this.answerType = answerType;
     }
 
     public int getId() {
@@ -42,20 +51,20 @@ public class AnswerOption {
         this.content = content;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
+    public int getNumberCorrectAnswer() {
+        return numberCorrectAnswer;
     }
 
-    public void setCorrect(boolean isCorrect) {
-        this.isCorrect = isCorrect;
+    public void setNumberCorrectAnswer(int correctAnswer) {
+        this.numberCorrectAnswer = correctAnswer;
     }
 
-    public int getNumberOrder() {
-        return numberOrder;
+    public String getAnswerType() {
+        return answerType;
     }
 
-    public void setNumberOrder(int numberOrder) {
-        this.numberOrder = numberOrder;
+    public void setAnswerType(String answerType) {
+        this.answerType = answerType;
     }
 
     @Override
@@ -65,8 +74,8 @@ public class AnswerOption {
         result = prime * result + id;
         result = prime * result + ((question == null) ? 0 : question.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
-        result = prime * result + (isCorrect ? 1231 : 1237);
-        result = prime * result + numberOrder;
+        result = prime * result + numberCorrectAnswer;
+        result = prime * result + ((answerType == null) ? 0 : answerType.hashCode());
         return result;
     }
 
@@ -91,12 +100,20 @@ public class AnswerOption {
                 return false;
         } else if (!content.equals(other.content))
             return false;
-        if (isCorrect != other.isCorrect)
+        if (numberCorrectAnswer != other.numberCorrectAnswer)
             return false;
-        if (numberOrder != other.numberOrder)
+        if (answerType == null) {
+            if (other.answerType != null)
+                return false;
+        } else if (!answerType.equals(other.answerType))
             return false;
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "AnswerOption [id=" + id + ", content=" + content + ", correctAnswer=" + numberCorrectAnswer + ", answerType="
+                + answerType + "]";
+    }
+
 }

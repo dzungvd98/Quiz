@@ -17,10 +17,4 @@ public class QuizService {
         return quiz;
     }
 
-
-    public float calculateScore(Users participant) {
-        if(quiz)
-    }
-
-
 }
