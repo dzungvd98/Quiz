@@ -83,8 +83,8 @@ public class QuestionServiceTest {
 
 
         List<AnswerOption> userAnswer = new ArrayList<>();
-        userAnswer.add(answer3);
         userAnswer.add(answer6);
+        userAnswer.add(answer3);
         boolean isCorrect = question1.checkUserAnswer(userAnswer);
         assertEquals(true, isCorrect);
     }

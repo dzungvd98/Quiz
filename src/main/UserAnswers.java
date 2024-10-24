@@ -1,10 +1,22 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserAnswers {
     private int id;
     private QuizDetails quizDetails;
-    private Question question;
-    private AnswerOption answerOption;
+    private int questionId;
+    private List<AnswerOption> userAnswer;
+
+    public UserAnswers() {
+        userAnswer = new ArrayList<>();
+    }
+
+    public UserAnswers(int questionId) {
+        this.questionId = questionId;
+        userAnswer = new ArrayList<>();
+    }
 
     public int getId() {
         return id;
@@ -22,20 +34,26 @@ public class UserAnswers {
         this.quizDetails = quizDetails;
     }
 
-    public Question getQuestion() {
-        return question;
+    public List<AnswerOption> getUserAnswer() {
+        return userAnswer;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setUserAnswer(List<AnswerOption> userAnswer) {
+        this.userAnswer = userAnswer;
     }
 
-    public AnswerOption getAnswerOption() {
-        return answerOption;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    public void setAnswerOption(AnswerOption answerOption) {
-        this.answerOption = answerOption;
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
+    public void addAnswerOption(AnswerOption answerOption) {
+        if(userAnswer == null) {
+            userAnswer = new ArrayList<>();
+        }
+        userAnswer.add(answerOption);
+    }
 }

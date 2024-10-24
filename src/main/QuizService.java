@@ -1,6 +1,7 @@
 package main;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 public class QuizService {
@@ -15,6 +16,28 @@ public class QuizService {
         quiz.setQuestions(questions);
         quiz.setCreatedAt(LocalDateTime.now());
         return quiz;
+    }
+
+
+    public int calculateScore(List<UserAnswers> allUserAnswer) {
+        int score = 0;
+        for(UserAnswers userAnswers : allUserAnswer) {
+            if(checkUserAnswerInQuiz(userAnswers)) {
+                score ++;
+            }
+        }
+        return score;
+    }
+
+    public boolean checkUserAnswerInQuiz(UserAnswers userAnswer) {
+        if(userAnswer == null) return false;
+        for(Question quest : quiz.getQuestions()) {
+            if(quest.getId() == userAnswer.getQuestionId()) {
+               return quest.checkUserAnswer(userAnswer.getUserAnswer());
+            }
+        }
+        return false;
+
     }
 
 }

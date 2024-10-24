@@ -157,7 +157,7 @@ public class Question {
 
     public boolean checkUserAnswerForMutilpleChoiceQuestion(Map<Integer, List<AnswerOption>> resultMap, List<AnswerOption> userAnswers) {
         List<AnswerOption> correctAnswers = resultMap.get(1);
-        return correctAnswers.containsAll(userAnswers);
+        return userAnswers.containsAll(correctAnswers);
     }
 
 }
