@@ -1,7 +1,7 @@
 package main;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Users {
@@ -10,9 +10,10 @@ public class Users {
     private String password;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private List<Quizs> quizs;
     private Set<Roles> roles;
     private Set<QuizDetails> quizDetails;
+
+
 
     public int getId() {
         return id;
@@ -54,14 +55,6 @@ public class Users {
         this.updatedAt = updatedAt;
     }
 
-    public List<Quizs> getQuizs() {
-        return quizs;
-    }
-
-    public void setQuizs(List<Quizs> quizs) {
-        this.quizs = quizs;
-    }
-
     public Set<Roles> getRoles() {
         return roles;
     }
@@ -76,6 +69,19 @@ public class Users {
 
     public void setQuizDetails(Set<QuizDetails> quizDetails) {
         this.quizDetails = quizDetails;
+    }
+
+    public void joinQuiz(Quizs quiz) {
+        QuizDetails quizDetail = new QuizDetails();
+        quizDetail.setUser(this);
+        quizDetail.setQuiz(quiz);
+        quizDetail.setStartedAt(LocalDateTime.now());
+
+        if(quizDetails == null) {
+            quizDetails = new HashSet<>();
+        }
+
+        quizDetails.add(quizDetail);
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class UserAnswers {
     private int id;
     private QuizDetails quizDetails;
-    private int questionId;
+    private Integer questionId;
     private List<AnswerOption> userAnswer;
 
     public UserAnswers() {
@@ -42,18 +42,18 @@ public class UserAnswers {
         this.userAnswer = userAnswer;
     }
 
-    public int getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
-    }
-
     public void addAnswerOption(AnswerOption answerOption) {
         if(userAnswer == null) {
             userAnswer = new ArrayList<>();
         }
         userAnswer.add(answerOption);
+    }
+
+    public Integer getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 }

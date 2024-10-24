@@ -2,7 +2,9 @@ package main;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -28,10 +30,10 @@ public class QuizSerivceTest {
         question2.addAnswerOption(answer6);
         
         Question question3 = new Question(3, "Câu 1: Sắp xếp", "Sắp xếp các số sau theo thứ tự tăng dần?", new Types(3, "Orderred Choice"), new Levels(1, "Level 1", "Vỡ lòng"), new Topic(1, "Toán", "Toán lớp 1"));
-        AnswerOption answer7 = new AnswerOption(3, "2", 2);
-        AnswerOption answer8 = new AnswerOption(4, "1", 1);
-        AnswerOption answer9 = new AnswerOption(5, "4", 3);
-        AnswerOption answer10 = new AnswerOption(6, "8", 4);
+        AnswerOption answer7 = new AnswerOption(7, "2", 2);
+        AnswerOption answer8 = new AnswerOption(8, "1", 1);
+        AnswerOption answer9 = new AnswerOption(9, "4", 3);
+        AnswerOption answer10 = new AnswerOption(10, "8", 4);
 
         question3.addAnswerOption(answer7);
         question3.addAnswerOption(answer8);
@@ -79,20 +81,34 @@ public class QuizSerivceTest {
         QuizService quizService = initialQuiz();
         
         UserAnswers userAnswers1 = new UserAnswers(1);
-        AnswerOption answer3 = new AnswerOption(3, "Option 3");
-        AnswerOption answer6 = new AnswerOption(6, "Option 6");
-        userAnswers1.addAnswerOption(answer6);
-        userAnswers1.addAnswerOption(answer3);
-
+        AnswerOption answer1 = new AnswerOption(1, "Option 1");
+        userAnswers1.addAnswerOption(answer1);
 
         UserAnswers userAnswers2 = new UserAnswers(2);
+        AnswerOption answer3 = new AnswerOption(3, "Option 3");
+        AnswerOption answer6 = new AnswerOption(6, "Option 6");
+        userAnswers2.addAnswerOption(answer6);
+        userAnswers2.addAnswerOption(answer3);
 
-        
         UserAnswers userAnswers3 = new UserAnswers(3);
+        AnswerOption answer7 = new AnswerOption(7, "2");
+        AnswerOption answer8 = new AnswerOption(8, "1");
+        AnswerOption answer9 = new AnswerOption(9, "4");
+        AnswerOption answer10 = new AnswerOption(10, "8");
+        userAnswers3.addAnswerOption(answer8);
+        userAnswers3.addAnswerOption(answer7);
+        userAnswers3.addAnswerOption(answer9);
+        userAnswers3.addAnswerOption(answer10);
+
+        List<UserAnswers> listUserAnswers = new ArrayList<>();
+        listUserAnswers.add(userAnswers1);
+        listUserAnswers.add(userAnswers2);
+        listUserAnswers.add(userAnswers3);
 
 
+        int score = quizService.calculateScore(listUserAnswers);
 
-        int score = quizService.calculateScore();
+        assertEquals(3, score);
     }
 
 

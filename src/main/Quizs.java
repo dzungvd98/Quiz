@@ -1,6 +1,8 @@
 package main;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,7 +22,6 @@ public class Quizs {
     }
 
     public Quizs() {
-        //TODO Auto-generated constructor stub
     }
 
     public int getId() {
@@ -77,5 +78,24 @@ public class Quizs {
 
     public void setQuestions(Set<Question> questions) {
         this.questions = questions;
+    }
+
+    public void addQuestion(Question question) {
+        if(questions == null) {
+            questions = new HashSet<>();
+        }
+        questions.add(question);
+    }
+
+    public void addParticipant(Users user) {
+        if(participants == null) {
+            participants = new ArrayList<>();
+        }
+        participants.add(user);
+
+        QuizDetails quizDetail = new QuizDetails();
+        quizDetail.setStartedAt(LocalDateTime.now());
+        quizDetail.setUser(user);
+        quizDetail.setQuiz(this);
     }
 }

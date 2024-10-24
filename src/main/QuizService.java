@@ -30,14 +30,19 @@ public class QuizService {
     }
 
     public boolean checkUserAnswerInQuiz(UserAnswers userAnswer) {
-        if(userAnswer == null) return false;
+        if(userAnswer == null || userAnswer.getQuestionId() == null) return false;
         for(Question quest : quiz.getQuestions()) {
             if(quest.getId() == userAnswer.getQuestionId()) {
-               return quest.checkUserAnswer(userAnswer.getUserAnswer());
+                System.out.println(quest.getId());
+                return quest.checkUserAnswer(userAnswer.getUserAnswer());
             }
         }
         return false;
+    }
 
+
+    public void addQuestion(Question question1) {
+        quiz.addQuestion(question1);
     }
 
 }
