@@ -34,10 +34,11 @@ public class UserService {
         int totalScore = 0;
         LocalDateTime timeEndQuiz = quizDetails.getStartedAt().plusMinutes(quizDetails.getQuiz().getDuration());
         for(UserAnswers userAnswer : quizDetails.getUserAnswers()) {
-            if(userAnswer.getSubmittedAt().isBefore(timeEndQuiz)) {
-                totalScore += quizService.calculateScore(quizDetails.getUserAnswers());
+            if(userAnswer.getSubmittedAt().isBefore(timeEndQuiz) && quizService.checkUserAnswerInQuiz(userAnswer)) {
+                totalScore ++;
             }
         }
+        quizDetails.setScore(totalScore);
         return totalScore;
     }
 }

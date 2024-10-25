@@ -18,6 +18,19 @@ public class UserAnswers {
     public UserAnswers(int questionId) {
         this.questionId = questionId;
         userAnswer = new ArrayList<>();
+        submittedAt = LocalDateTime.now();
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 
     public int getId() {

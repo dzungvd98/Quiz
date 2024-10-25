@@ -47,7 +47,6 @@ public class QuizService {
         if(userAnswer == null || userAnswer.getQuestionId() == null) return false;
         for(Question quest : quiz.getQuestions()) {
             if(quest.getId() == userAnswer.getQuestionId()) {
-                System.out.println(quest.getId());
                 return quest.checkUserAnswer(userAnswer.getUserAnswer());
             }
         }

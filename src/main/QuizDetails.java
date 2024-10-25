@@ -8,9 +8,15 @@ public class QuizDetails {
     private int id;
     private Quizs quiz;
     private Users user;
-    private Float score;
+    private Integer score;
     private LocalDateTime startedAt;
     private List<UserAnswers> userAnswers;
+
+    
+    public QuizDetails() {
+        this.score = 0;
+        this.userAnswers = new ArrayList<>();
+    }
 
     public int getId() {
         return id;
@@ -36,14 +42,6 @@ public class QuizDetails {
         this.user = user;
     }
 
-    public Float getScore() {
-        return score;
-    }
-
-    public void setScore(Float score) {
-        this.score = score;
-    }
-
     public LocalDateTime getStartedAt() {
         return startedAt;
     }
@@ -67,4 +65,14 @@ public class QuizDetails {
     public void setUserAnswers(List<UserAnswers> userAnswers) {
         this.userAnswers = userAnswers;
     }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    
 }
