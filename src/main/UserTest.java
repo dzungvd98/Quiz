@@ -7,12 +7,12 @@ public class UserTest {
         Users user1 = new Users();
         user1.setUsername("Dungvd");
         user1.setCreatedAt(LocalDateTime.now());
+        
+        UserService userService = new UserService();
+        userService.setUser(user1);
 
         Quizs quiz = new Quizs("Kiem tra giua ky", new Users(), 60);
-        user1.joinQuiz(quiz);
-        QuizService quizService = new QuizService();
-
+        userService.joinQuiz(quiz);
         return user1;
-        
     }
 }

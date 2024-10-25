@@ -1,5 +1,6 @@
 package main;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class UserAnswers {
     private QuizDetails quizDetails;
     private Integer questionId;
     private List<AnswerOption> userAnswer;
+    private LocalDateTime submittedAt;
 
     public UserAnswers() {
         userAnswer = new ArrayList<>();
@@ -56,4 +58,13 @@ public class UserAnswers {
     public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
+
+    public LocalDateTime getSubmittedAt() {
+        return submittedAt;
+    }
+
+    public void setSubmittedAt(LocalDateTime submittedAt) {
+        this.submittedAt = submittedAt;
+    }
+
 }

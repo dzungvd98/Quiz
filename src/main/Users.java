@@ -1,7 +1,6 @@
 package main;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 public class Users {
@@ -71,17 +70,8 @@ public class Users {
         this.quizDetails = quizDetails;
     }
 
-    public void joinQuiz(Quizs quiz) {
-        QuizDetails quizDetail = new QuizDetails();
-        quizDetail.setUser(this);
-        quizDetail.setQuiz(quiz);
-        quizDetail.setStartedAt(LocalDateTime.now());
+    
 
-        if(quizDetails == null) {
-            quizDetails = new HashSet<>();
-        }
-
-        quizDetails.add(quizDetail);
-    }
+   
 
 }

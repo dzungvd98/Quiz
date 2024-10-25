@@ -7,6 +7,13 @@ import java.util.Set;
 public class QuizService {
     private Quizs quiz;
 
+    public Quizs getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quizs quiz) {
+        this.quiz = quiz;
+    }
 
     public Quizs createQuiz(String quizName, Users userCreated, int duration, Set<Question> questions) {
         quiz = new Quizs();
@@ -18,6 +25,13 @@ public class QuizService {
         return quiz;
     }
 
+    // public List< getScoreOfUserInQuiz(Users user) {
+    //     for(QuizDetails quizDetail : user.getQuizDetails()) {
+    //         if(quizDetail.getQuiz().getId() == quiz.getId()) {
+
+    //         }
+    //     }
+    // }
 
     public int calculateScore(List<UserAnswers> allUserAnswer) {
         int score = 0;
@@ -44,5 +58,6 @@ public class QuizService {
     public void addQuestion(Question question1) {
         quiz.addQuestion(question1);
     }
+
 
 }

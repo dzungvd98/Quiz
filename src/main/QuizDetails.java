@@ -1,7 +1,8 @@
 package main;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuizDetails {
     private int id;
@@ -9,7 +10,7 @@ public class QuizDetails {
     private Users user;
     private Float score;
     private LocalDateTime startedAt;
-    private Set<UserAnswers> userAnswers;
+    private List<UserAnswers> userAnswers;
 
     public int getId() {
         return id;
@@ -51,11 +52,19 @@ public class QuizDetails {
         this.startedAt = startedAt;
     }
 
-    public Set<UserAnswers> getUserAnswers() {
+
+    public void addUserAnswers(UserAnswers userAnswer) {
+        if(userAnswers == null) {
+            userAnswers = new ArrayList<>();
+        }
+        userAnswers.add(userAnswer);
+    }
+
+    public List<UserAnswers> getUserAnswers() {
         return userAnswers;
     }
 
-    public void setUserAnswers(Set<UserAnswers> userAnswers) {
+    public void setUserAnswers(List<UserAnswers> userAnswers) {
         this.userAnswers = userAnswers;
     }
 }
