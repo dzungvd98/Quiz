@@ -25,14 +25,6 @@ public class QuizService {
         return quiz;
     }
 
-    // public List< getScoreOfUserInQuiz(Users user) {
-    //     for(QuizDetails quizDetail : user.getQuizDetails()) {
-    //         if(quizDetail.getQuiz().getId() == quiz.getId()) {
-
-    //         }
-    //     }
-    // }
-
     public int calculateScore(List<UserAnswers> allUserAnswer) {
         int score = 0;
         for(UserAnswers userAnswers : allUserAnswer) {
@@ -53,10 +45,8 @@ public class QuizService {
         return false;
     }
 
-
     public void addQuestion(Question question1) {
         quiz.addQuestion(question1);
     }
-
 
 }

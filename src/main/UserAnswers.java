@@ -20,17 +20,6 @@ public class UserAnswers {
         userAnswer = new ArrayList<>();
         submittedAt = LocalDateTime.now();
 
-
-
-
-
-
-
-
-
-
-
-        
     }
 
     public int getId() {
