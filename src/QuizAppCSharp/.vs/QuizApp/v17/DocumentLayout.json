@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{961ED36E-F829-4140-A29F-540720B2788A}|QuizAppTests\\QuizAppTests.csproj|d:\\hoc hanh\\mentorship program 2024\\multiple choice exam\\quizapp\\quizapptests\\service\\quizservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961ED36E-F829-4140-A29F-540720B2788A}|QuizAppTests\\QuizAppTests.csproj|solutionrelative:quizapptests\\service\\quizservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961ED36E-F829-4140-A29F-540720B2788A}|QuizAppTests\\QuizAppTests.csproj|d:\\hoc hanh\\mentorship program 2024\\multiple choice exam\\quizapp\\quizapptests\\service\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961ED36E-F829-4140-A29F-540720B2788A}|QuizAppTests\\QuizAppTests.csproj|solutionrelative:quizapptests\\service\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABA100A-76BE-485F-96C4-918491D1C5A9}|QuizApp\\QuizApp.csproj|d:\\hoc hanh\\mentorship program 2024\\multiple choice exam\\quizapp\\quizapp\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABA100A-76BE-485F-96C4-918491D1C5A9}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABA100A-76BE-485F-96C4-918491D1C5A9}|QuizApp\\QuizApp.csproj|d:\\hoc hanh\\mentorship program 2024\\multiple choice exam\\quizapp\\quizapp\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABA100A-76BE-485F-96C4-918491D1C5A9}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizApp\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "QuizApp\\Service\\UserService.cs",
+              "ToolTip": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizApp\\Service\\UserService.cs",
+              "RelativeToolTip": "QuizApp\\Service\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T09:40:39.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserServiceTest.cs",
+              "DocumentMoniker": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizAppTests\\Service\\UserServiceTest.cs",
+              "RelativeDocumentMoniker": "QuizAppTests\\Service\\UserServiceTest.cs",
+              "ToolTip": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizAppTests\\Service\\UserServiceTest.cs",
+              "RelativeToolTip": "QuizAppTests\\Service\\UserServiceTest.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAGYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T09:29:22.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuizServiceTest.cs",
+              "DocumentMoniker": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizAppTests\\Service\\QuizServiceTest.cs",
+              "RelativeDocumentMoniker": "QuizAppTests\\Service\\QuizServiceTest.cs",
+              "ToolTip": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizAppTests\\Service\\QuizServiceTest.cs",
+              "RelativeToolTip": "QuizAppTests\\Service\\QuizServiceTest.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAIAwwEQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T06:55:06.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Question.cs",
+              "DocumentMoniker": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizApp\\Model\\Question.cs",
+              "RelativeDocumentMoniker": "QuizApp\\Model\\Question.cs",
+              "ToolTip": "D:\\HOC HANH\\Mentorship Program 2024\\Multiple Choice Exam\\QuizApp\\QuizApp\\Model\\Question.cs",
+              "RelativeToolTip": "QuizApp\\Model\\Question.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAADwvyoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T03:44:42.182Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

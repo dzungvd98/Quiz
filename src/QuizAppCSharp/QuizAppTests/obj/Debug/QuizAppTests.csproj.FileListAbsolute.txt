@@ -1,0 +1,11 @@
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\obj\Debug\QuizAppTests.csproj.AssemblyReference.cache
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\obj\Debug\QuizAppTests.csproj.CoreCompileInputs.cache
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\QuizAppTests.dll
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\QuizAppTests.pdb
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\QuizApp.exe
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\QuizApp.pdb
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\bin\Debug\QuizApp.exe.config
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\obj\Debug\QuizAppT.6EEF6C26.Up2Date
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\obj\Debug\QuizAppTests.dll
+D:\HOC HANH\Mentorship Program 2024\Multiple Choice Exam\QuizApp\QuizAppTests\obj\Debug\QuizAppTests.pdb
