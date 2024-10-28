@@ -5,49 +5,61 @@ import java.util.List;
 import java.util.Set;
 
 public class QuizService {
-    private Quizs quiz;
+    private List<Quizs> quizs;
 
-    public Quizs getQuiz() {
-        return quiz;
+    public List<Quizs> getQuizs() {
+        return quizs;
     }
 
-    public void setQuiz(Quizs quiz) {
-        this.quiz = quiz;
+    public void setQuizs(List<Quizs> quizs) {
+        this.quizs = quizs;
     }
 
     public Quizs createQuiz(String quizName, Users userCreated, int duration, Set<Question> questions) {
-        quiz = new Quizs();
+        Quizs quiz = new Quizs();
         quiz.setName(quizName);
         quiz.setUserCreated(userCreated);
         quiz.setDuration(duration);
         quiz.setQuestions(questions);
         quiz.setCreatedAt(LocalDateTime.now());
+        quizs.add(quiz);
         return quiz;
     }
 
-    public int calculateScore(List<UserAnswers> allUserAnswer) {
-        int score = 0;
-        for(UserAnswers userAnswers : allUserAnswer) {
-            if(checkUserAnswerInQuiz(userAnswers)) {
-                score ++;
-            }
-        }
-        return score;
-    }
 
-    public boolean checkUserAnswerInQuiz(UserAnswers userAnswer) {
-        if(userAnswer == null || userAnswer.getQuestionId() == null) return false;
-        for(Question quest : quiz.getQuestions()) {
-            if(quest.getId() == userAnswer.getQuestionId()) {
-                return quest.checkUserAnswer(userAnswer.getUserAnswer());
-            }
-        }
-        return false;
-    }
+    // public Quizs getQuiz() {
+    //     return quiz;
+    // }
 
-    public void addQuestion(Question question1) {
-        quiz.addQuestion(question1);
-    }
+    // public void setQuiz(Quizs quiz) {
+    //     this.quiz = quiz;
+    // }
+
+    
+
+    // public int calculateScore(List<UserAnswers> allUserAnswer) {
+    //     int score = 0;
+    //     for(UserAnswers userAnswers : allUserAnswer) {
+    //         if(checkUserAnswerInQuiz(userAnswers)) {
+    //             score ++;
+    //         }
+    //     }
+    //     return score;
+    // }
+
+    // public boolean checkUserAnswerInQuiz(UserAnswers userAnswer) {
+    //     if(userAnswer == null || userAnswer.getQuestionId() == null) return false;
+    //     for(Question quest : quiz.getQuestions()) {
+    //         if(quest.getId() == userAnswer.getQuestionId()) {
+    //             return quest.checkUserAnswer(userAnswer.getUserAnswer());
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // public void addQuestion(Question question1) {
+    //     quiz.addQuestion(question1);
+    // }
 
 
 }
