@@ -22,5 +22,5 @@ public class Quizs {
     @Builder.Default
     private List<QuizUsers> quizUsers = new ArrayList<>();
     @Builder.Default
-    private Set<Question> questions = new HashSet<>();
+    private List<Question> questions = new ArrayList<>();
 }

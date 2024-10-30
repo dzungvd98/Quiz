@@ -18,6 +18,6 @@ public class Users {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     @Builder.Default
-    private Set<QuizUsers> quizDetails = new HashSet<>();
+    private Set<QuizUsers> quizUsers = new HashSet<>();
 
 }

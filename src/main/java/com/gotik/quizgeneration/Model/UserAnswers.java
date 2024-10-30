@@ -14,6 +14,8 @@ public class UserAnswers {
     private int id;
     private QuizUsers quizUsers;
     private Integer questionId;
-    private List<AnswerOption> userAnswer;
+    private Integer answerOptionId;
+    private String answerText;
+    private Integer orderIndex;
     private LocalDateTime submittedAt;
 }

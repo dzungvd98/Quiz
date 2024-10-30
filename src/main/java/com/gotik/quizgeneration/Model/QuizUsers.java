@@ -18,6 +18,5 @@ public class QuizUsers {
     private Integer score;
     private LocalDateTime startedAt;
     @Builder.Default
-    private List<UserAnswers> userAnswers = new ArrayList<>();
-
+    private List<UserAnswers> userAnswer = new ArrayList<>();
 }

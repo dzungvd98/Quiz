@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.gotik.quizgeneration.Model.AnswerOption;
+import com.gotik.quizgeneration.Model.QType;
 import com.gotik.quizgeneration.Model.Question;
 
 import com.gotik.quizgeneration.Model.Tags;
@@ -55,12 +56,12 @@ public class QuestionService {
     }
 
     // Method filter question by type, level, topic, tag
-    public List<Question> filterQuestions(Integer topicId, Integer levelId, Integer typeId, Set<Tags> tags) {
+    public List<Question> filterQuestions(Integer topicId, Integer levelId, QType type, Set<Tags> tags) {
         return questions.stream()
                 .filter(q -> topicId == null || q.getTopic().getId() == topicId)
                 .filter(q -> levelId == null || q.getLevel().getId() == levelId)
-                .filter(q -> typeId == null || q.getType().getId() == typeId)
-                .filter(q -> q.getTags().stream().anyMatch(tags::contains))
+                .filter(q -> type == null || q.getType().equals(type))
+                .filter(q -> tags == null || q.getTags().stream().anyMatch(tags::contains))
                 .collect(Collectors.toList());
 
     }
