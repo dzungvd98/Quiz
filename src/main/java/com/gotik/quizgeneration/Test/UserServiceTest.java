@@ -25,11 +25,7 @@ public class UserServiceTest {
         Question question3 = createSampleOrderredQuestion();
         Question question4 = createSampleFillInBlankQuestion();
 
-        List<Question> questions = new ArrayList<>();
-        questions.add(question1);
-        questions.add(question2);
-        questions.add(question3);
-        questions.add(question4);
+        List<Question> questions = Arrays.asList(question1, question2, question3, question4);
 
         quiz.setQuestions(questions);
     }

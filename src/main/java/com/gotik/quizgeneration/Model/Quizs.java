@@ -19,6 +19,7 @@ public class Quizs {
     private Users userCreated;
     private int duration;
     private LocalDateTime createdAt;
+    private LocalDateTime startedAt;
     @Builder.Default
     private List<QuizUsers> quizUsers = new ArrayList<>();
     @Builder.Default

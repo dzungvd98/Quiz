@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import com.gotik.quizgeneration.Model.*;
 
@@ -16,12 +17,16 @@ public class UserService {
     private List<Users> users = new ArrayList<>();
 
     public QuizUsers joinQuiz(Quizs quiz, Users user) {
+        QuizService quizService = new QuizService();
+        boolean isActive = quizService.isQuizActive(quiz);
+        Optional.of(isActive)
+                .filter(active -> active)
+                .orElseThrow(() -> new RuntimeException("Quiz is not ready to join"));
         QuizUsers quizUser =  QuizUsers.builder()
                 .user(user)
                 .quiz(quiz)
-                .startedAt(LocalDateTime.now())
                 .build();
-
+        quizUser.setStartedAt(quiz.getStartedAt() == null ? LocalDateTime.now() : quiz.getStartedAt());
         quiz.getQuizUsers().add(quizUser);
         user.getQuizUsers().add(quizUser);
         return quizUser;

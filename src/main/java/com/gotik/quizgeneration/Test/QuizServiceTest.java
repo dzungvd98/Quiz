@@ -5,6 +5,7 @@ import com.gotik.quizgeneration.Service.QuizService;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +19,7 @@ public class QuizServiceTest {
     @Before
     public void setUp() {
         quizService = new QuizService();
+        createNewQuiz();
     }
 
     public Quizs createNewQuiz() {
@@ -43,6 +45,18 @@ public class QuizServiceTest {
         Quizs quiz = createNewQuiz();
         assertEquals(3, quiz.getQuestions().size());
         assertEquals(60, quiz.getDuration());
+    }
+
+    @Test
+    public void testQuizActive() {
+        Quizs quiz = quizService.getQuizs().get(0);
+
+        boolean isActive = quizService.isQuizActive(quiz);
+        assertEquals(true, isActive);
+
+        quiz.setStartedAt(LocalDateTime.now().minusMinutes(1));
+        isActive = quizService.isQuizActive(quiz);
+        assertEquals(true, isActive);
     }
 
     @Test

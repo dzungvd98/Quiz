@@ -8,8 +8,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.gotik.quizgeneration.Model.*;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
+@Setter
 public class QuizService {
 
     List<Quizs> quizs = new ArrayList<>();
@@ -34,6 +37,16 @@ public class QuizService {
 
     }
 
+    // Check is quiz can join
+    public boolean isQuizActive(Quizs quiz) {
+        if(quiz.getStartedAt() == null) {
+            return true;
+        }
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime timeEndQuiz = quiz.getStartedAt().plusMinutes(quiz.getDuration());
+        return now.isBefore(timeEndQuiz) && now.isAfter(quiz.getStartedAt());
+    }
+
     // Check history join of user in quiz
     public List<QuizUsers> getHistoryJoinQuizOfUser(Users user, Quizs quiz) {
         List<QuizUsers> outComeOfUserInQuizs = new ArrayList<>();
@@ -47,6 +60,7 @@ public class QuizService {
                 .collect(Collectors.toList());
     }
 
+    // Filter Question and generate quiz
     public Quizs generateQuiz(String quizName, List<Question> questions,
                               Users userCreated,
                               int duration,
@@ -75,6 +89,7 @@ public class QuizService {
         Collections.shuffle(questions);
         return questions.subList(0, numberOfQuestion);
     }
+
 
 
 }
